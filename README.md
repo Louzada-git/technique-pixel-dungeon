@@ -1,27 +1,37 @@
-# Shattered Pixel Dungeon
+# Technique Pixel Dungeon
 
-[Shattered Pixel Dungeon](https://shatteredpixel.com/shatteredpd/) is an open-source traditional roguelike dungeon crawler with randomized levels and enemies, and hundreds of items to collect and use. It's based on the [source code of Pixel Dungeon](https://github.com/00-Evan/pixel-dungeon-gradle), by [Watabou](https://watabou.itch.io/).
+Mod do [Shattered Pixel Dungeon](https://github.com/00-Evan/shattered-pixel-dungeon), em português, com foco em técnicas: cada herói vai montar as próprias técnicas com talismãs, num grimório que evolui com o uso.
 
-Shattered Pixel Dungeon currently compiles for Android, iOS, and Desktop platforms. You can find official releases of the game on:
+**Situação:** a base está pronta. Por enquanto o jogo é o Shattered Pixel Dungeon 4.0.2 em português, com nome e save próprios. O grimório e os talismãs são a próxima fase. O plano completo está em [PLANO.md](PLANO.md).
 
-[![Get it on Google Play](https://shatteredpixel.com/assets/images/badges/gplay.png)](https://play.google.com/store/apps/details?id=com.shatteredpixel.shatteredpixeldungeon)
-[![Download on the App Store](https://shatteredpixel.com/assets/images/badges/appstore.png)](https://apps.apple.com/app/shattered-pixel-dungeon/id1563121109)
-[![Steam](https://shatteredpixel.com/assets/images/badges/steam.png)](https://store.steampowered.com/app/1769170/Shattered_Pixel_Dungeon/)<br>
-[![GOG.com](https://shatteredpixel.com/assets/images/badges/gog.png)](https://www.gog.com/game/shattered_pixel_dungeon)
-[![Itch.io](https://shatteredpixel.com/assets/images/badges/itch.png)](https://shattered-pixel.itch.io/shattered-pixel-dungeon)
-[![Github Releases](https://shatteredpixel.com/assets/images/badges/github.png)](https://github.com/00-Evan/shattered-pixel-dungeon/releases)
+## Compilar e jogar
 
-If you like this game, please consider [supporting me on Patreon](https://www.patreon.com/ShatteredPixel)!
+Precisa do Java 11 ou mais novo (o JDK, que traz o `javac`).
 
-There is an official blog for this project at [ShatteredPixel.com](https://www.shatteredpixel.com/blog/).
+**Sem Gradle** (Linux ou macOS):
 
-The game also has a translation project hosted on [Transifex](https://explore.transifex.com/shattered-pixel/shattered-pixel-dungeon/).
+```
+ferramentas/compilar.sh --rodar
+```
 
-Note that **this repository does not accept pull requests!** The code here is provided in hopes that others may find it useful for their own projects, not to allow community contribution. Issue reports of all kinds (bug reports, feature requests, etc.) are welcome.
+Na primeira vez, o script baixa o Shattered Pixel Dungeon oficial do GitHub para tirar dele as bibliotecas (libGDX, LWJGL…). O jogo compilado fica em `build-local/TechniquePixelDungeon.jar` e abre com `java -jar`.
 
-If you'd like to work with the code, you can find the following guides in `/docs`:
-- [Compiling for Android.](docs/getting-started-android.md)
-    - **[If you plan to distribute on Google Play please read the end of this guide.](docs/getting-started-android.md#distributing-your-app)**
-- [Compiling for desktop platforms.](docs/getting-started-desktop.md)
-- [Compiling for iOS.](docs/getting-started-ios.md)
-- [Recommended changes for making your own version.](docs/recommended-changes.md)
+**Com Gradle:** `./gradlew desktop:debug` roda o jogo e `./gradlew desktop:release` gera o JAR em `desktop/build/libs`. Os guias do Shattered em [docs/](docs/) explicam o resto (em inglês).
+
+Os saves ficam separados dos do Shattered. No Linux, ficam em `~/.local/share/.louzada/technique-pixel-dungeon/`.
+
+## O que muda em relação ao Shattered
+
+- Nome, pacote e versão próprios (0.1.0).
+- Só português: as outras línguas e o seletor de idioma saíram.
+- Sem as notícias e o aviso de atualização do Shattered.
+- Tela Sobre com os créditos do mod e dos tradutores para o português, além de todos os créditos originais.
+
+## Créditos e licença
+
+- **Shattered Pixel Dungeon:** Evan Debenham ([ShatteredPixel.com](https://shatteredpixel.com)).
+- **Pixel Dungeon:** Watabou, que é a base do Shattered.
+- **Tradução para o português:** a comunidade do Shattered no [Transifex](https://explore.transifex.com/shattered-pixel/shattered-pixel-dungeon/).
+- **Arte, música e sons:** os mesmos do Shattered, com os autores listados na tela Sobre do jogo.
+
+Licença GPLv3, igual à do original (veja [LICENSE.txt](LICENSE.txt)). O código deste mod continua aberto, e os créditos originais não podem ser removidos.
