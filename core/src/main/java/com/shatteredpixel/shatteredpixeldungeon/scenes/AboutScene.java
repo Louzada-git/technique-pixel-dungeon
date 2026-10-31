@@ -65,6 +65,21 @@ public class AboutScene extends PixelScene {
 		Component content = list.content();
 		content.clear();
 
+		//*** Technique Pixel Dungeon Credits ***
+
+		final int TECH_COLOR = 0xD9A35B;
+		CreditsBlock tech = new CreditsBlock(true, TECH_COLOR,
+				"Technique Pixel Dungeon",
+				null,
+				"Mod feito por _Louzada_\nBaseado no código aberto do Shattered Pixel Dungeon",
+				"github.com/Louzada-git/...",
+				"https://github.com/Louzada-git/technique-pixel-dungeon");
+		tech.setRect((w - colWidth)/2f, insets.top + 6, colWidth, 0);
+		content.add(tech);
+
+		float shpxTop = tech.bottom() + 8;
+		addLine(shpxTop - 4, content);
+
 		//*** Shattered Pixel Dungeon Credits ***
 
 		CreditsBlock shpx = new CreditsBlock(true, Window.SHPX_COLOR,
@@ -74,9 +89,9 @@ public class AboutScene extends PixelScene {
 				"ShatteredPixel.com",
 				"https://ShatteredPixel.com");
 		if (landscape()){
-			shpx.setRect((w - fullWidth)/2f - 6, insets.top + 26, 120, 0);
+			shpx.setRect((w - fullWidth)/2f - 6, shpxTop + 20, 120, 0);
 		} else {
-			shpx.setRect((w - fullWidth)/2f, insets.top + 6, 120, 0);
+			shpx.setRect((w - fullWidth)/2f, shpxTop, 120, 0);
 		}
 		content.add(shpx);
 
@@ -88,7 +103,7 @@ public class AboutScene extends PixelScene {
 				"https://www.alekskomitov.com/");
 		aleks.setSize(colWidth/2f, 0);
 		if (landscape()){
-			aleks.setPos(shpx.right(), insets.top+6);
+			aleks.setPos(shpx.right(), shpxTop);
 		} else {
 			aleks.setPos(w/2f - colWidth/2f, shpx.bottom()+6);
 		}
