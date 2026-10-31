@@ -26,8 +26,6 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Badges;
 import com.shatteredpixel.shatteredpixeldungeon.SPDSettings;
 import com.shatteredpixel.shatteredpixeldungeon.effects.BadgeBanner;
-import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
-import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.ui.TitleBackground;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Tooltip;
@@ -164,11 +162,6 @@ public class PixelScene extends Scene {
 			renderedTextPageSize = 512;
 		} else {
 			renderedTextPageSize = 1024;
-		}
-		//asian languages have many more unique characters, so increase texture size to anticipate that
-		if (Messages.lang() == Languages.CHI_SMPL || Messages.lang() == Languages.CHI_TRAD ||
-				Messages.lang() == Languages.KOREAN || Messages.lang() == Languages.JAPANESE){
-			renderedTextPageSize *= 2;
 		}
 		Game.platform.setupFontGenerators(renderedTextPageSize, SPDSettings.systemFont());
 
