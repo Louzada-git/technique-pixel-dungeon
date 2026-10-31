@@ -31,7 +31,6 @@ import com.watabou.utils.DeviceCompat;
 import com.watabou.utils.GameSettings;
 import com.watabou.utils.Point;
 
-import java.util.Locale;
 
 public class SPDSettings extends GameSettings {
 	
@@ -195,9 +194,7 @@ public class SPDSettings extends GameSettings {
 	}
 
 	public static boolean systemFont(){
-		return getBoolean(KEY_SYSTEMFONT,
-				(language() == Languages.CHI_SMPL || language() == Languages.CHI_TRAD
-						|| language() == Languages.KOREAN || language() == Languages.JAPANESE));
+		return getBoolean(KEY_SYSTEMFONT, false);
 	}
 
 	public static void vibration(boolean value){
@@ -434,13 +431,9 @@ public class SPDSettings extends GameSettings {
 		put( KEY_LANG, lang.code());
 	}
 	
+	//Technique Pixel Dungeon is only in Portuguese
 	public static Languages language() {
-		String code = getString(KEY_LANG, null);
-		if (code == null){
-			return Languages.matchLocale(Locale.getDefault());
-		} else {
-			return Languages.matchCode(code);
-		}
+		return Languages.PORTUGUESE;
 	}
 
 	//Window management (desktop only atm)
