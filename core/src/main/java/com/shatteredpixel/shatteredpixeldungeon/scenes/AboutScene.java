@@ -23,6 +23,7 @@ package com.shatteredpixel.shatteredpixeldungeon.scenes;
 
 import com.shatteredpixel.shatteredpixeldungeon.ShatteredPixelDungeon;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Flare;
+import com.shatteredpixel.shatteredpixeldungeon.messages.Languages;
 import com.shatteredpixel.shatteredpixeldungeon.ui.ExitButton;
 import com.shatteredpixel.shatteredpixeldungeon.ui.Icons;
 import com.shatteredpixel.shatteredpixeldungeon.ui.RenderedTextBlock;
@@ -221,6 +222,25 @@ public class AboutScene extends PixelScene {
 
 		addLine(transifex.bottom() + 4, content);
 
+		//*** Portuguese translation credits ***
+		//the language window is gone, so the Portuguese translators are credited here
+
+		String ptCredits = "Revisão: " + String.join(", ", Languages.PORTUGUESE.reviewers())
+				+ "\n\nTradução: " + String.join(", ", Languages.PORTUGUESE.translators());
+		CreditsBlock portuguese = new CreditsBlock(true,
+				Window.TITLE_COLOR,
+				"Tradução para o português",
+				null,
+				ptCredits,
+				null,
+				null);
+		//names can contain '_', which must not toggle highlighting
+		portuguese.body.setHightlighting(false);
+		portuguese.setRect(transifex.left(), transifex.bottom() + 8, colWidth, 0);
+		content.add(portuguese);
+
+		addLine(portuguese.bottom() + 4, content);
+
 		//*** Freesound Credits ***
 
 		CreditsBlock freesound = new CreditsBlock(true,
@@ -251,7 +271,7 @@ public class AboutScene extends PixelScene {
 				"_Lemon,Squeeze,Squishy,Fruit.wav_ by _Filipe Chagas_",
 				"freesound.org",
 				"https://www.freesound.org");
-		freesound.setRect(transifex.left()-10, transifex.bottom() + 8, colWidth+20, 0);
+		freesound.setRect(transifex.left()-10, portuguese.bottom() + 8, colWidth+20, 0);
 		content.add(freesound);
 
 		content.setSize( fullWidth, freesound.bottom()+10 + insets.bottom );
